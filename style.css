@@ -27,14 +27,18 @@ img {
 }
 
 .background_up {
-    background-color: #459689;
+    background-color: #00A884;
     width: 100%;
     height: 100px;
+    position: absolute;
 }
 
 .background_down {
-    background-color: #D5DCD9;
+    background-color: #E1E0DD;
+    width: 100%;
     height: calc(100vh - 100px);
+    position: absolute;
+    top: 100px;
 }
 
 /* CONTAINER  */
@@ -44,6 +48,7 @@ img {
     position: absolute;
     /* border: 2px solid black; */
     width: 80%;
+    max-width: 1390px;
     height: calc(100% - 50px);
     top: 25px;
 }
@@ -168,7 +173,9 @@ img {
 /* CONTACT LIST  */
 
 .contact-list-container {
-    overflow: auto;
+    /* overflow: auto; */
+    overflow-y: auto;
+    overflow-x: unset;
 }
 
 .contact-list {
@@ -178,28 +185,42 @@ img {
     flex-wrap: wrap;
 }
 
-.contact-list-background1 {
+.contact-list-active {
     background-color: #EAEAEA;
 }
 
 .contact {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
-    padding: 8px 15px;
+    align-items: center;
     height: 72px;
     font-size: 12px;
     cursor: pointer;
+}
+
+.contact figure{
+    padding: 0 15px;
 }
 
 .contact img {
     align-self: center;
 }
 
-.contact-text {
-    max-width: 230px;
+.contact-list-item-text {
+    display: flex;
+    align-items: center;
     flex-grow: 1;
-    padding: 0 12px;
+    height: 100%;
+    border-bottom: 1px solid #E9EDEF;
+}
+
+.contact-text {
+    min-width: 230px;
+    flex-grow: 1;
+}
+
+.contact-list-date{
+    padding: 0 5px;
 }
 
 .text-grey {
@@ -235,11 +256,12 @@ img {
 
 .active-chat {
     background-color: #E5DDD5;
+    background-image: url("img/bg2.png");
     flex-grow: 1;
     overflow: auto;
-    display: flex;
-    overflow: auto;
     flex-wrap: wrap;
+    display: flex;
+
 }
 
 .message-container-fluid {
