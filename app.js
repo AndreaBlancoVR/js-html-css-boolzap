@@ -105,21 +105,24 @@ const app = new Vue({
                     {   
                     date: '02/03/2022 03:34:00',
                     text: this.inputText,
-                    status: 'sent'
+                    status: 'sent',
                     } 
                 )
             }
             this.inputText = ''
+            this.sendReply( i )
         },
 
-        // contactsDestructFn: function ( i ) {
-        //     const { messages } = this.contacts[i]
-        //     // this.contacts[i].active = !messages
-        //     console.log(messages)
-        //     // return messages
-        //     messagesActive.push( messages )
-        //     console.log(messagesActive)
-        // }
+        sendReply: function ( i ) {
+            this.contacts[i].messages.push( 
+                {   
+                date: '02/03/2022 03:34:00',
+                text: 'Ok',
+                status: 'received',
+                } 
+            )
+        }
+
     
         // Esempio: function ( i ) {
         //     this.toDos.splice(i,1)
