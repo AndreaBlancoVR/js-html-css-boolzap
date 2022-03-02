@@ -3,6 +3,7 @@ const app = new Vue({
     data: {
         currentIndex: 0,
         messagesActive: [],
+        inputText: '',
         contacts: [
             {
                 name: 'Michele',
@@ -96,6 +97,19 @@ const app = new Vue({
     methods: {
         activeChatFn: function ( i ) {
         this.currentIndex = i;
+        },
+        
+        sendInputText: function (i) {
+            if(this.inputText.split(" ").join("") !== '') {
+                this.contacts[i].messages.push( 
+                    {   
+                    date: '02/03/2022 03:34:00',
+                    text: this.inputText,
+                    status: 'sent'
+                    } 
+                )
+            }
+            this.inputText = ''
         },
 
         // contactsDestructFn: function ( i ) {

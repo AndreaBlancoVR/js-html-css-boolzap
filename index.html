@@ -98,7 +98,10 @@
                             <!-- CHAT-FOOTER-BAR -->
                 <div class="chat-text-bar">
                     <span class="chat-bar-icon"><i class="fa-regular fa-face-smile"></i></span>
-                    <input type="text" class="chat-bar-input">
+                    <input type="text" 
+                    class="chat-bar-input"
+                    v-model="inputText"
+                    @keyup.enter="sendInputText(currentIndex)">
                     <span class="chat-bar-icon"><i class="fa-solid fa-microphone"></i></span>
                 </div>
             </div>
