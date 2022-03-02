@@ -110,7 +110,15 @@ const app = new Vue({
                 )
             }
             this.inputText = ''
-            this.sendReply( i )
+
+            // PERCHE' NON VA!?!?
+            // setTimeout( fucntion ( i ) {
+            //     this.sendReply( i )
+            // } , 1000)
+
+            setTimeout( () => {
+            this.sendReply( i ) ;
+            }, 1000);
         },
 
         sendReply: function ( i ) {
