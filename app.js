@@ -102,17 +102,21 @@ const app = new Vue({
         
         sendInputText: function (i) {
             if(this.inputText.split(" ").join("") !== '') {
-                this.contacts[i].messages.push( 
-                    {   
-                    date: '02/03/2022 03:34:00',
-                    text: this.inputText,
-                    status: 'sent',
-                    } 
-                )
+                const newMessage = this.createMessage( this.inputText, 'sent');
+                this.contacts[i].messages.push( newMessage )
+
+                // const d = new Date();
+                // this.contacts[i].messages.push( 
+                //     {   
+                //     date: `${ d. getDate() }/${ d. getMonth() }/${ d. getFullYear() } ${ d. getHours() }:${ d. getMinutes() }:${ d. getSeconds() }`,
+                //     text: this.inputText,
+                //     status: 'sent',
+                //     } 
+                // )
             }
             this.inputText = ''
 
-            // PERCHE' NON VA!?!?
+            // PERCHE' NON VA!?!? Ok ora so perchè non va
             // setTimeout( fucntion ( i ) {
             //     this.sendReply( i )
             // } , 1000)
@@ -130,7 +134,25 @@ const app = new Vue({
                 status: 'received',
                 } 
             )
-        }
+        },
+
+        createMessage: function(text , status) {
+            const d = new Date ();
+
+            const newMessage = {
+                date: `${ d. getDate() }/${ d. getMonth()+1 }/${ d. getFullYear() } ${ d. getHours() }:${ d. getMinutes() }:${ d. getSeconds() }`,
+                text: text,
+                status: status,
+            }
+
+            return newMessage
+        },
+
+        getHours: function ( date ) {
+            const ora = date.split(' ')[1];
+            // return ora.splice(6, 8);  NON RIESCO A FARLO FUNZIONARE :\
+            return ora.substring(0,5);
+        },
 
     
         // Esempio: function ( i ) {

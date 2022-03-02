@@ -86,7 +86,7 @@
                                     <p>{{el.name}}</p>
                                     <p class="text-grey">{{el.messages[el.messages.length -1].text}}</p>
                                 </div>
-                                <p class="contact-list-date text-grey">{{el.messages[el.messages.length -1].date}}</p>
+                                <p class="contact-list-date text-grey">{{ getHours( el.messages[el.messages.length -1].date ) }}</p>
                             </div>
                         </li>                        
                     </ul>
@@ -101,7 +101,7 @@
                     <img :src="contacts[currentIndex].avatar" alt="" width="42" height="42">
                     <div class="chat-bar-text">
                         <p class="">{{contacts[currentIndex].name}}</p>
-                        <p class="text-grey">Ultimo accesso 28/02/2022 12:07</p>
+                        <p class="text-grey">Ultimo accesso alle {{ getHours (contacts[currentIndex].messages[0].date) }}</p>
                     </div>
                     <div class="utent-menu-wrapper">
                         <i class="fa-solid fa-magnifying-glass"></i>
@@ -117,7 +117,7 @@
                             :class="el.status == 'sent' ? 'sent' : '' " 
                             class="message-wrapper received">
                                 <p class="message-text">{{el.text}}</p>
-                                <p class="message-date">{{el.date}}</p>
+                                <p class="message-date">{{ getHours( el.date ) }}</p>
                             </div>
                     </div>
                 </div>
