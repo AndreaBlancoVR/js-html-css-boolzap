@@ -14,8 +14,11 @@
         <div class="background_up"></div>
         <div class="background_down"></div>
         <div class="container">
-            <nav class="contact-wrapper"> 
 
+                        <!-- SIDEBAR -->
+
+            <nav class="contact-wrapper"> 
+                        <!-- TOOLBAR -->
                 <div class="utent-bar">
                     <img src="img/.jpeg" alt="" class="thumb-35">
                     <p class="utent-name">Elena</p>
@@ -25,6 +28,7 @@
                         <i class="fa-solid fa-ellipsis-vertical"></i>
                     </div>
                 </div>
+                        <!-- NOTIFICATION-BAR -->
                 <div class="notification-container">
                     <span class="notification-icon-wrapper">
                         <i class="fa-solid fa-bell-slash"></i>
@@ -34,15 +38,20 @@
                         <p class="notification-activator">Attiva notifiche desktop</p>
                     </div>
                 </div>
+                        <!-- SEARCH-BAR -->
                 <div class="search-bar-container">
                     <span class="search-bar-icon-wrapper">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </span>
                     <input type="text" class="search-bar-input" placeholder="Cerca o inizia una nuova chat" value="">
                 </div>
+                        <!-- CONTACT LIST -->
                 <div class="contact-list-container">
                     <ul class="contact-list">
-                        <li v-for="(el, index) in contacts" class="contact">
+                        <li v-for="(el, index) in contacts" 
+                        :class=" index == currentIndex ? 'contact-list-active' : '' " 
+                        class="contact" 
+                        @click="activeChatFn(index)">
                             <figure>
                                 <img :src="el.avatar" alt="" width="42" height="42">
                             </figure>
@@ -53,29 +62,19 @@
                                 </div>
                                 <p class="contact-list-date text-grey">{{el.messages[0].date}}</p>
                             </div>
-                        </li>
-                        <li class="contact contact-list-active">
-                            <figure>
-                                <img src="img/.jpeg" alt="" width="42" height="42">
-                            </figure>
-                            <div class="contact-list-item-text">
-                                <div class="contact-text">
-                                    <p>Michele</p>
-                                    <p class="text-grey">Tutto fatto.</p>
-                                </div>
-                                <p class="contact-list-date text-grey">28/02/2022 12:07</p>
-                            </div>
-                        </li>
-                        
+                        </li>                        
                     </ul>
                 </div>
-                
             </nav>
+
+                        <!-- CHAT-CONTAINER -->
+
             <div class="chat-container">
+                        <!-- CHAT-HEADER-BAR -->
                 <div class="active-chat-bar">
-                    <img src="img/.jpeg" alt="" width="42" height="42">
+                    <img :src="contacts[currentIndex].avatar" alt="" width="42" height="42">
                     <div class="chat-bar-text">
-                        <p class="">Michele</p>
+                        <p class="">{{contacts[currentIndex].name}}</p>
                         <p class="text-grey">Ultimo accesso 28/02/2022 12:07</p>
                     </div>
                     <div class="utent-menu-wrapper">
@@ -84,78 +83,19 @@
                         <i class="fa-solid fa-ellipsis-vertical"></i>
                     </div>
                 </div>
+                        <!-- CHAT-MAIN-WRAPPER -->
                 <div class="active-chat">
                     <div class="message-container-fluid">
-                        <!-- <div class="message-container received"> -->
-                            <div class="message-wrapper received">
-                                <p class="message-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam inventore quaerat repudiandae labore modi ullam!</p>
-                                <p class="message-date">15/11/2021 15:01</p>
-                            </div>
-                        <!-- </div> -->
-                        <!-- <div class="message-container sent"> -->
-                            <div class="message-wrapper sent">
-                                <p class="message-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam inventore quaerat repudiandae labore modi ullam!</p>
-                                <p class="message-date">15/11/2021 15:01</p>
-                            </div>
-                        <!-- </div> -->
-                            <div class="message-wrapper received">
-                                <p class="message-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                                <p class="message-date">15/11/2021 15:01</p>
-                            </div>
-                            <div class="message-wrapper sent">
-                                <p class="message-text">Lorem ipsum dolor sit amet consectetur adipisicing..</p>
-                                <p class="message-date">15/11/2021 15:01</p>
-                            </div>
-                            <div class="message-wrapper received">
-                                <p class="message-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                                <p class="message-date">15/11/2021 15:01</p>
-                            </div>
-                            <div class="message-wrapper sent">
-                                <p class="message-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa tenetur reprehenderit expedita quidem at cupiditate debitis amet, non voluptas maxime quis reiciendis eveniet assumenda aut dolores beatae consequuntur, porro ea! Nulla corporis neque ipsa aspernatur? Consectetur nam asperiores quaerat, omnis praesentium autem commodi, optio sit et ipsa nihil, consequuntur voluptatibus!</p>
-                                <p class="message-date">15/11/2021 15:01</p>
-                            </div>
-                            <div class="message-wrapper received">
-                                <p class="message-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                                <p class="message-date">15/11/2021 15:01</p>
-                            </div>
-                            <div class="message-wrapper sent">
-                                <p class="message-text">Lorem ipsum dolor sit amet.</p>
-                                <p class="message-date">15/11/2021 15:01</p>
-                            </div>
-                            <div class="message-wrapper received">
-                                <p class="message-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                                <p class="message-date">15/11/2021 15:01</p>
-                            </div>
-                            <div class="message-wrapper sent">
-                                <p class="message-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, a.</p>
-                                <p class="message-date">15/11/2021 15:01</p>
-                            </div>
-                            <div class="message-wrapper received">
-                                <p class="message-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                                <p class="message-date">15/11/2021 15:01</p>
-                            </div>
-                            <div class="message-wrapper sent">
-                                <p class="message-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Et distinctio delectus corrupti pariatur, impedit quia velit voluptatem maxime deleniti ullam.</p>
-                                <p class="message-date">15/11/2021 15:01</p>
-                            </div>
-                            <div class="message-wrapper received">
-                                <p class="message-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                                <p class="message-date">15/11/2021 15:01</p>
-                            </div>
-                            <div class="message-wrapper sent">
-                                <p class="message-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Et distinctio delectus corrupti pariatur, impedit quia velit voluptatem maxime deleniti ullam.</p>
-                                <p class="message-date">15/11/2021 15:01</p>
-                            </div>
-                            <div class="message-wrapper received">
-                                <p class="message-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                                <p class="message-date">15/11/2021 15:01</p>
-                            </div>
-                            <div class="message-wrapper sent">
-                                <p class="message-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Et distinctio delectus corrupti pariatur, impedit quia velit voluptatem maxime deleniti ullam.</p>
+
+                            <div v-for="(el, index) in contacts[currentIndex].messages" 
+                            :class="el.status == 'sent' ? 'sent' : '' " 
+                            class="message-wrapper received">
+                                <p class="message-text">{{el.text}}</p>
                                 <p class="message-date">15/11/2021 15:01</p>
                             </div>
                     </div>
                 </div>
+                            <!-- CHAT-FOOTER-BAR -->
                 <div class="chat-text-bar">
                     <span class="chat-bar-icon"><i class="fa-regular fa-face-smile"></i></span>
                     <input type="text" class="chat-bar-input">

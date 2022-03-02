@@ -237,7 +237,7 @@ img {
 
 .active-chat-bar {
     width: 100%;
-    height: 87px;
+    height: 73px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -267,7 +267,7 @@ img {
 .message-container-fluid {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    /* justify-content: flex-end; */
     flex-grow: 1;
     padding: 0 7%;
 }
@@ -309,7 +309,7 @@ img {
 /*  CHAT FOOTER BAR  */
 
 .chat-text-bar{
-    height: 87px;
+    height: 62px;
     background-color: #F3EEEB;
     width: 100%;
     display: flex;
