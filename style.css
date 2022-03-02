@@ -144,7 +144,7 @@ img {
 /* SEARCH BAR  */
 
 .search-bar-container {
-    height: 50px;
+    min-height: 50px;
     display: flex;
     align-items: center;
     padding: 25px;
@@ -339,5 +339,25 @@ img {
     vertical-align: middle;
     color: #808080;
     cursor: pointer;
+}
+
+
+
+/*
+*
+*
+*/
+
+.displayNone {
+    display: none;
+}
+
+.search-result-container {
+    border-top: 3px solid black;
+    border-bottom: 3px solid black;
+    margin-bottom: 30px;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
 }
 

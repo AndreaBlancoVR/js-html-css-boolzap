@@ -20,7 +20,7 @@
             <nav class="contact-wrapper"> 
                         <!-- TOOLBAR -->
                 <div class="utent-bar">
-                    <img src="img/.jpeg" alt="" class="thumb-35">
+                    <img src="img/15.svg" alt="" class="thumb-35">
                     <p class="utent-name">Elena</p>
                     <div class="utent-menu-wrapper">
                         <i class="fa-solid fa-circle-notch"></i>
@@ -43,8 +43,34 @@
                     <span class="search-bar-icon-wrapper">
                         <i class="fa-solid fa-magnifying-glass"></i>
                     </span>
-                    <input type="text" class="search-bar-input" placeholder="Cerca o inizia una nuova chat" value="">
+                    <input type="text" 
+                    v-model="search" 
+                    class="search-bar-input" 
+                    placeholder="Cerca o inizia una nuova chat" 
+                    value=""
+                    @keyup="searchIndex = 1">
+                    
                 </div>
+                
+                <ul :class=" searchIndex == 1 ? '' : 'displayNone' "class="contact-list search-result-container">
+                    <p>Risultati ricerca</p>
+                    <li v-for="(el, index) in contacts"  
+                    class="contact" 
+                    @click="activeChatFn(index)"
+                    :class=" index == currentIndex ? 'contact-list-active' : '' "
+                    v-if="el.name.toLowerCase().includes(search.toLowerCase())">
+                        <figure>
+                            <img :src="el.avatar" alt="" width="42" height="42">
+                        </figure>
+                        <div class="contact-list-item-text">
+                            <div class="contact-text">
+                                <p>{{el.name}}</p>
+                                <p class="text-grey">{{el.messages[el.messages.length -1].text}}</p>
+                            </div>
+                            <p class="contact-list-date text-grey">{{el.messages[el.messages.length -1].date}}</p>
+                        </div>
+                    </li>
+                </ul>
                         <!-- CONTACT LIST -->
                 <div class="contact-list-container">
                     <ul class="contact-list">

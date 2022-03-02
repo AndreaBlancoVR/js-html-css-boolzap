@@ -2,7 +2,8 @@ const app = new Vue({
     el: '#app',
     data: {
         currentIndex: 0,
-        messagesActive: [],
+        search: '',
+        searchIndex:  0,
         inputText: '',
         contacts: [
             {
@@ -137,6 +138,14 @@ const app = new Vue({
         // },
 
     },
+
+    // computed: {
+    //     filteredList() {
+    //       return this.postList.filter(post => {
+    //         return post.title.toLowerCase().includes(this.search.toLowerCase())
+    //       })
+    //     }
+    //   }
     // mounted() {
     //     this.startAutoplay();
     // },
