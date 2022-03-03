@@ -279,6 +279,7 @@ img {
 }
 
 .message-wrapper {
+    min-width: 100px;
     max-width: 500px;
     padding: 10px;
     display: flex;
@@ -286,6 +287,7 @@ img {
     margin-bottom: 12px;
     border-radius: 7px;
     font-size: 12px;
+    position: relative;
 }
 
 .message-date {
@@ -352,6 +354,10 @@ img {
     display: none;
 }
 
+.displayBlock {
+    display: block;
+}
+
 .search-result-container {
     border-top: 3px solid black;
     border-bottom: 3px solid black;
@@ -359,5 +365,40 @@ img {
     flex-direction: column;
     align-items: center;
     padding: 20px 0;
+}
+
+.message-chevron {
+    position: absolute;
+    font-size: 16px;
+    right: 12px;
+    top: 5px;
+    background-color: inherit;
+    border-radius: 50%;
+    box-shadow: 0px 0px 24px 3px #FFF;
+    text-decoration: none;
+    color: #808080;
+    display: none;
+}
+
+.message-wrapper:hover .message-chevron {
+    display: block;
+    cursor: pointer;
+}
+
+.message-window {
+    position: absolute;
+    bottom: 100%;
+    left: 100%;
+    background-color: white;
+    padding: 0 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    white-space: nowrap;
+    box-shadow: 0px 0px 10px -3px #000000;
+}
+
+.message-window-item {
+    padding: 10px;
+    cursor: pointer;
 }
 

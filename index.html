@@ -118,6 +118,16 @@
                             class="message-wrapper received">
                                 <p class="message-text">{{el.text}}</p>
                                 <p class="message-date">{{ getHours( el.date ) }}</p>
+                                <span class="message-chevron"
+                                @click="messageWindowFn(el)">
+                                    <i class="fa-solid fa-chevron-down"></i>
+                                </span>
+                                <div class="message-window"
+                                :class=" el.messageWindow == false ? 'displayNone' : '' ">
+                                    <p class="message-window-item">Message info</p>
+                                    <p class="message-window-item"
+                                    @click="deleteMessageFn(el, index)">Delete message</p>
+                                </div>
                             </div>
                     </div>
                 </div>
