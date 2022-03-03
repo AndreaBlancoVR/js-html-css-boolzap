@@ -47,14 +47,13 @@
                     v-model="search" 
                     class="search-bar-input" 
                     placeholder="Cerca o inizia una nuova chat" 
-                    value=""
-                    @keyup="searchIndex = 1">
+                    value="">
                     
                 </div>
                 
-                <ul :class=" searchIndex == 1 ? '' : 'displayNone' "class="contact-list search-result-container">
+                <ul :class=" search.length > 0 ? '' : 'displayNone' "class="contact-list search-result-container">
                     <p>Risultati ricerca</p>
-                    <li v-for="(el, index) in contacts"  
+                    <!-- <li v-for="(el, index) in contacts"  
                     class="contact" 
                     @click="activeChatFn(index)"
                     :class=" index == currentIndex ? 'contact-list-active' : '' "
@@ -65,11 +64,11 @@
                         <div class="contact-list-item-text">
                             <div class="contact-text">
                                 <p>{{el.name}}</p>
-                                <p class="text-grey">{{el.messages[el.messages.length -1].text}}</p>
+                                <p class="text-grey">{{el.messages[el.messages.length -1]?.text}}</p>
                             </div>
-                            <p class="contact-list-date text-grey">{{el.messages[el.messages.length -1].date}}</p>
+                            <p class="contact-list-date text-grey">{{el.messages[el.messages.length -1]?.date}}</p>
                         </div>
-                    </li>
+                    </li> -->
                 </ul>
                         <!-- CONTACT LIST -->
                 <div class="contact-list-container">
@@ -77,16 +76,17 @@
                         <li v-for="(el, index) in contacts" 
                         :class=" index == currentIndex ? 'contact-list-active' : '' " 
                         class="contact" 
-                        @click="activeChatFn(index)">
+                        @click="activeChatFn(index)"
+                        v-if="el.name.toLowerCase().includes(search.toLowerCase())">
                             <figure>
                                 <img :src="el.avatar" alt="" width="42" height="42">
                             </figure>
                             <div class="contact-list-item-text">
                                 <div class="contact-text">
                                     <p>{{el.name}}</p>
-                                    <p class="text-grey">{{el.messages[el.messages.length -1].text}}</p>
+                                    <p class="text-grey">{{el.messages[el.messages.length -1]?.text}}</p>
                                 </div>
-                                <p class="contact-list-date text-grey">{{ getHours( el.messages[el.messages.length -1].date ) }}</p>
+                                <p class="contact-list-date text-grey">{{ getHours( el.messages[el.messages.length -1]?.date ) }}</p>
                             </div>
                         </li>                        
                     </ul>
@@ -101,7 +101,7 @@
                     <img :src="contacts[currentIndex].avatar" alt="" width="42" height="42">
                     <div class="chat-bar-text">
                         <p class="">{{contacts[currentIndex].name}}</p>
-                        <p class="text-grey">Ultimo accesso alle {{ getHours (contacts[currentIndex].messages[0].date) }}</p>
+                        <p class="text-grey">Ultimo accesso alle {{ getHours (contacts[currentIndex].messages[0]?.date) }}</p>
                     </div>
                     <div class="utent-menu-wrapper">
                         <i class="fa-solid fa-magnifying-glass"></i>
@@ -117,7 +117,7 @@
                             :class="el.status == 'sent' ? 'sent' : '' " 
                             class="message-wrapper received">
                                 <p class="message-text">{{el.text}}</p>
-                                <p class="message-date">{{ getHours( el.date ) }}</p>
+                                <p class="message-date">{{ getHours( el?.date ) }}</p>
                                 <span class="message-chevron"
                                 @click="messageWindowFn(el)">
                                     <i class="fa-solid fa-chevron-down"></i>

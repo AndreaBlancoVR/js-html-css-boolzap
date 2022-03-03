@@ -1,7 +1,7 @@
 const app = new Vue({
     el: '#app',
     data: {
-        currentIndex: 0,
+        currentIndex: 1,
         search: '',
         searchIndex:  0,
         messageHoverIndex: false,
