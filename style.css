@@ -102,6 +102,7 @@ img {
     justify-content: space-between;
     color: #B1B1B1;
     font-size: 18px;
+    position: relative;
 }
 
 .utent-menu-wrapper i {
@@ -254,6 +255,10 @@ img {
     cursor: pointer;
 }
 
+/* .utent-menu-wrapper {
+
+} */
+
 .active-chat {
     background-color: #E5DDD5;
     background-image: url("img/bg2.png");
@@ -405,5 +410,17 @@ img {
 .message-window-item {
     padding: 10px;
     cursor: pointer;
+}
+
+.chat-bar-window {
+    position: absolute;
+    top: 150%;
+    left: -25%;
+    background-color: white;
+    padding: 0 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    white-space: nowrap;
+    box-shadow: 0px 0px 10px -3px #000000;
 }
 

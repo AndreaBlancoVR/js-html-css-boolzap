@@ -1,10 +1,11 @@
 const app = new Vue({
     el: '#app',
     data: {
-        currentIndex: 1,
+        currentIndex: 0,
         search: '',
         searchIndex:  0,
         messageHoverIndex: false,
+        chatBarIndex: false,
         inputText: '',
         contacts: [
             {
@@ -190,6 +191,23 @@ const app = new Vue({
         deleteMessageFn: function (el, i) {
             this.contacts[this.currentIndex].messages.splice(i, 1);
         },
+
+        chatBarWindowFn: function (el, i) {
+            console.log(this.chatBarIndex)
+            this.chatBarIndex = !this.chatBarIndex
+            console.log(this.chatBarIndex)
+        },
+
+        deleteChatFn: function (i) {
+            console.log(i)
+            console.log(this.contacts)
+            
+            this.contacts.splice(i, 1);
+            this.chatBarIndex = !this.chatBarIndex
+            // this.currentIndex --
+            console.log(i)
+            console.log(this.contacts)
+        }
 
     },
 

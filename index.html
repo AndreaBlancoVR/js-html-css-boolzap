@@ -106,7 +106,14 @@
                     <div class="utent-menu-wrapper">
                         <i class="fa-solid fa-magnifying-glass"></i>
                         <i class="fa-solid fa-paperclip"></i>
-                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                        <i class="fa-solid fa-ellipsis-vertical"
+                        @click="chatBarWindowFn()"></i>
+                        <div class="chat-bar-window"
+                            :class=" chatBarIndex == false ? 'displayNone' : '' ">
+                                <p class="message-window-item">Chat info</p>
+                                <p class="message-window-item"
+                                @click="deleteChatFn(currentIndex)">Delete chat</p>
+                        </div>
                     </div>
                 </div>
                         <!-- CHAT-MAIN-WRAPPER -->
@@ -123,7 +130,8 @@
                                     <i class="fa-solid fa-chevron-down"></i>
                                 </span>
                                 <div class="message-window"
-                                :class=" el.messageWindow == false ? 'displayNone' : '' ">
+                                :class=" el.messageWindow == false ? 'displayNone' : '' "
+                                @mouseleave="messageWindowFn(el)">
                                     <p class="message-window-item">Message info</p>
                                     <p class="message-window-item"
                                     @click="deleteMessageFn(el, index)">Delete message</p>
