@@ -1,7 +1,7 @@
 const app = new Vue({
     el: '#app',
     data: {
-        currentIndex: 0,
+        currentIndex: null,
         search: '',
         searchIndex:  0,
         messageHoverIndex: false,
@@ -16,7 +16,7 @@ const app = new Vue({
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
-                        text: 'Hai portato a spasso il cane?',
+                        text: 'Ciaone',
                         status: 'sent',
                         messageWindow: false,
                     },
@@ -204,7 +204,6 @@ const app = new Vue({
             
             this.contacts.splice(i, 1);
             this.chatBarIndex = !this.chatBarIndex
-            // this.currentIndex --
             console.log(i)
             console.log(this.contacts)
         }

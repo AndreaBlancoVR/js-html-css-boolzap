@@ -20,8 +20,8 @@
             <nav class="contact-wrapper"> 
                         <!-- TOOLBAR -->
                 <div class="utent-bar">
-                    <img src="img/15.svg" alt="" class="thumb-35">
-                    <p class="utent-name">Elena</p>
+                    <img src="img/14.svg" alt="" class="thumb-35">
+                    <p class="utent-name">Andrea</p>
                     <div class="utent-menu-wrapper">
                         <i class="fa-solid fa-circle-notch"></i>
                         <i class="fa-solid fa-message"></i>
@@ -94,13 +94,23 @@
             </nav>
 
                         <!-- CHAT-CONTAINER -->
-
-            <div class="chat-container">
+            <div v-if="currentIndex == null" class="chat-container default-page">
+                <div class="default-items-wrapper">
+                    <img src="img/default_image_1.png" alt="">
+                    <div>
+                        <h1>BoolZap Web Beta</h1>
+                    <p>Ora puoi inviare e ricevere messaggi senza che il telefono sia connesso a Internet.</p>
+                    <p>Usa BoolZapp su un massimo di 4 dispositivi e 1 telefono contemporaneamente.</p>  
+                    </div>
+                </div> 
+            </div>
+            <div v-else class="chat-container">
+                
                         <!-- CHAT-HEADER-BAR -->
                 <div class="active-chat-bar">
                     <img :src="contacts[currentIndex].avatar" alt="" width="42" height="42">
                     <div class="chat-bar-text">
-                        <p class="">{{contacts[currentIndex].name}}</p>
+                        <p class="">{{contacts[currentIndex]?.name}}</p>
                         <p class="text-grey">Ultimo accesso alle {{ getHours (contacts[currentIndex].messages[0]?.date) }}</p>
                     </div>
                     <div class="utent-menu-wrapper">
